@@ -1,198 +1,121 @@
-# 0x03. Python - Data Structures: Lists, Tuples
+# 0x02. Python - import & modules
 ## About
 An introductory project on:
-- Lists, their methods, and how to use them
-- How to use lists as stacks and queues
-- List comprehensions and how to use them
-- Tuples and how to use them
-- Sequences
-- Tuple packing
-- Sequence unpacking
-- The `del` statement and how to use it
+- How to import functions from another file
+- How to use imported functions
+- How to create a module
+- How to use the built-in function `dir()`
+- How to prevent code in your script from being executed when imported
+- How to use command line arguments with your Python programs
 ## Requirements
-### Python Scripts
 - Python 3.4
 - pep8 1.7
-### C Files
-- Ubuntu 14.04 LTS
-- gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
-- [Betty Style](https://github.com/holbertonschool/Betty/wiki)
 ## File Descriptions
 ### Mandatory
-**[0-print_list_integer.py](0-print_list_integer.py)** - Write a function that prints all integers of a list.
-- Prototype: `def print_list_integer(my_list=[]):`
-- Format: one integer per line
-- You are not allowed to import any module
-- You can assume that the list only contains integers
-- You are not allowed to cast integers into strings
-- You have to use `str.format()` to print integers
+**[0-add.py](0-add.py)** - imports the function `def add(a, b):` from the file `add_0.py` and prints the result of the addition `1 + 2 = 3`
+  * should not be executed when imported
 
-**[1-element_at.py](1-element_at.py)** - Write a function that retrieves an element from a list like on C.
-- Prototype: `def element_at(my_list, idx):`
-- If `idx` is negative, the function should return `None`
-- If `idx` is out of range (> of number of element in `my_list`), the function should return `None`
-- You are not allowed to import any module
-- You are not allowed to use `try/except`
+**[1-calculation.py](1-calculation.py)** - imports functions from the file `calculator_1.py` and uses all of its functions
+  * should not be executed when imported
 
-**[2-replace_in_list.py](2-replace_in_list.py)** - Write a function that replaces an element of a list at a specific position (like in C).
-- Prototype: `def replace_in_list(my_list, idx, element):`
-- If `idx` is negative, the function should not modify anything, and returns the original list
-- If `idx` is out of range (> of number of element in `my_list`), the function should not modify anything, and returns the original list
-- You are not allowed to import any module
-- You are not allowed to use `try/except`
+**[2-args.py](2-args.py)** - prints the number of and the list of its arguments.
+  * The output should be:
+    * Number of argument(s) followed by `argument` or `arguments`, followed by
+    * `:` (or `.` if no argument where passed) followed by
+    * a new line, followed by (if at least one argument)
+    * one argument per line:
+      * the position of the argument (starting at `1`) followed by `:`, followed by the argument value and a new line
+  * should not be executed when imported
 
-**[3-print_reversed_list_integer.py](3-print_reversed_list_integer.py)** - Write a function that prints all integers of a list, in reverse order.
-- Prototype: `def print_reversed_list_integer(my_list=[]):`
-- Format: one integer per line. See example
-- You are not allowed to import any module
-- You can assume that the list only contains integers
-- You are not allowed to cast integers into strings
-- You have to use `str.format()` to print integers
+**[3-infinite_add.py](3-infinite_add.py)** - prints the result of the addition of all arguments
+  * should not be executed when imported
 
-**[4-new_in_list.py](4-new_in_list.py)** - Write a function that replaces an element in a list at a specific position without modifying the original list (like in C).
-- Prototype: `def new_in_list(my_list, idx, element):`
-- If `idx` is negative, the function should return a copy of the original `list`
-- If `idx` is out of range (> of number of element in `my_list`), the function should return a copy of the original `list`
-- You are not allowed to import any module
-- You are not allowed to use `try/except`
+**[4-hidden_discovery.py](4-hidden_discovery.py)** - prints all the names defined by the compiled module [hidden_4.pyc](https://github.com/holbertonschool/0x02.py/raw/master/hidden_4.pyc)
+  * print only names that do not start with `__`
+  * should not be executed when imported
 
-**[5-no_c.py](5-no_c.py)** - Write a function that removes all characters `c` and `C` from a string.
-- Prototype: `def no_c(my_string):`
-- The function shoud return the new string
-- You are not allowed to import any module
-- You are not allowed to use `str.replace()`
-
-**[6-print_matrix_integer.py](6-print_matrix_integer.py)** - Write a function that prints a matrix of integers.
-- Prototype: `def print_matrix_integer(matrix=[[]]):`
-- Format: see example
-- You are not allowed to import any module
-- You can assume that the list only contains integers
-- You are not allowed to cast integers into strings
-- You have to use `str.format()` to print integers
-```
-guillaume@ubuntu:~/0x03$ cat 6-main.py
-#!/usr/bin/python3
-print_matrix_integer = __import__('6-print_matrix_integer').print_matrix_integer
-
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-print_matrix_integer(matrix)
-print("--")
-print_matrix_integer()
-
-guillaume@ubuntu:~/0x03$ ./6-main.py | cat -e
-1 2 3$
-4 5 6$
-7 8 9$
---$
-$
-guillaume@ubuntu:~/0x03$ 
-```
-
-**[7-add_tuple.py](7-add_tuple.py)** - Write a function that adds 2 tuples.
-- Prototype: `def add_tuple(tuple_a=(), tuple_b=()):`
-- Returns a tuple with 2 integers:
-  - The first element should be the addition of the first element of each argument
-  - The second element should be the addition of the second element of each argument
-- You are not allowed to import any module
-- You can assume that the two tuples will only contain integers
-- If a tuple is smaller than 2, use the value 0 for each missing integer
-- If a tuple is bigger than 2, use only the first 2 integers
-
-**[8-multiple_returns.py](8-multiple_returns.py)** - Write a function that returns a tuple with the length of a string and its first character.
-- Prototype: `def multiple_returns(sentence):`
-- If the sentence is empty, the first character should be equal to `None`
-- You are not allowed to import any module
-
-**[9-max_integer.py](9-max_integer.py)** - Write a function that finds the biggest integer of a list.
-- Prototype: `def max_integer(my_list=[]):`
-- If the list is empty, return `None`
-- You can assume that the list only contains integers
-- You are not allowed to import any module
-- You are not allowed to use the builtin `max()`
-
-**[10-divisible_by_2.py](10-divisible_by_2.py)** - Write a function that finds all multiples of 2 in a list.
-- Prototype: `def divisible_by_2(my_list=[]):`
-- Return a new list with `True` or `False`, depending on wether the integer at the same position in the original list is a multiple of 2
-- The new list should have the same size as the original list
-- You are not allowed to import any module
-
-**[11-delete_at.py](11-delete_at.py)** - Write a function that deletes the item at a specific position in a list.
-- Prototype: `def delete_at(my_list=[], idx=0):`
-- If `idx` is negative or out of range, nothing change
-- You are not allowed to use `pop()`
-- You are not allowed to import any module
-
-**[12-switch.py](12-switch.py)** - Complete the [source code](https://intranet.hbtn.io/rltoken/RfHRsVZK5IVZ5e4-0WAOJQ in order to switch value of `a` and `b`
-- Your program should be exactly 5 lines long
+**[5-variable_load.py](5-variable_load.py)** - imports the variable `a` from the file `variable_load_5.py` and prints its value.
+  * should not be executed when imported
 
 ### Advanced
-**[100-print_python_list_info.c](100-print_python_list_info.c)** - Create a C function that prints some basic info about Python lists.
-- Prototype: `void print_python_list_info(PyObject *p);`
-- Your shared library will be compiled with this command line: `gcc -Wall -Werror -Wextra -pedantic -std=c99 -shared -Wl,-soname,PyList -o libPyList.so -fPIC -I/usr/include/python3.4 100-print_python_list_info.c`
-- Format: see example
-```
-julien@ubuntu:~/CPython$ gcc -Wall -Werror -Wextra -pedantic -std=c99 -shared -Wl,-soname,PyList -o libPyList.so -fPIC -I/usr/include/python3.4 100-print_python_list_info.c
-julien@ubuntu:~/CPython$ cat 100-test_lists.py 
-import ctypes
+**[100-my_calculator.py](100-my_calculator.py)** - imports all functions from the file calculator_1.py and handles basics operations.
+- Usage: `./100-my_calculator.py a operator b`
+ - If the number of arguments is not 3, your program has to:
+  - print `Usage: ./100-my_calculator.py <a> <operator> <b>` followed with a new line
+  - exit with the value `1`
+ - `operator` can be:
+  - `+` for addition
+  - `-` for subtraction
+  - `*` for multiplication
+  - `/` for division
+ - If the operator is not one of the above:
+  - print `Unknown operator. Available operators: +, -, * and /` followed with a new line
+  - exit with the value `1`
+ - You can cast `a` and `b` into integers by using `int()` (you can assume that all arguments will be castable into integers)
+ - The result should be printed like this: `<a> <operator> <b> = <result>`, followed by a new line
+- You are not allowed to use `*` for importing or `__import__`
+- Your code should not be executed when imported
 
-lib = ctypes.CDLL('./libPyList.so')
-lib.print_python_list_info.argtypes = [ctypes.py_object]
-l = ['hello', 'World']
-lib.print_python_list_info(l)
-del l[1]
-lib.print_python_list_info(l)
-l = l + [4, 5, 6.0, (9, 8), [9, 8, 1024], "Holberton"]
-lib.print_python_list_info(l)
-l = []
-lib.print_python_list_info(l)
-l.append(0)
-lib.print_python_list_info(l)
-l.append(1)
-l.append(2)
-l.append(3)
-l.append(4)
-lib.print_python_list_info(l)
-l.pop()
-lib.print_python_list_info(l)
-julien@ubuntu:~/CPython$ python3 100-test_lists.py 
-[*] Size of the Python List = 2
-[*] Allocated = 2
-Element 0: str
-Element 1: str
-[*] Size of the Python List = 1
-[*] Allocated = 2
-Element 0: str
-[*] Size of the Python List = 7
-[*] Allocated = 7
-Element 0: str
-Element 1: int
-Element 2: int
-Element 3: float
-Element 4: tuple
-Element 5: list
-Element 6: str
-[*] Size of the Python List = 0
-[*] Allocated = 0
-[*] Size of the Python List = 1
-[*] Allocated = 4
-Element 0: int
-[*] Size of the Python List = 5
-[*] Allocated = 8
-Element 0: int
-Element 1: int
-Element 2: int
-Element 3: int
-Element 4: int
-[*] Size of the Python List = 4
-[*] Allocated = 8
-Element 0: int
-Element 1: int
-Element 2: int
-Element 3: int
-julien@CPython:~/CPython$ 
+**[101-easy_print.py](101-easy_print.py)** - prints #pythoniscool, followed by a new line, in the standard output.
+- Your program should be maximum 2 lines long
+- You are not allowed to use `print` or `import sys` in your file `101-easy_print.py`
+
+**[102-magic_calculation.py](102-magic_calculation.py)** - Write the Python function `def magic_calculation(a, b):` that does exactly the same as the following Python bytecode:
 ```
+  3           0 LOAD_CONST               1 (0)
+              3 LOAD_CONST               2 (('add', 'sub'))
+              6 IMPORT_NAME              0 (magic_calculation_102)
+              9 IMPORT_FROM              1 (add)
+             12 STORE_FAST               2 (add)
+             15 IMPORT_FROM              2 (sub)
+             18 STORE_FAST               3 (sub)
+             21 POP_TOP
+
+  4          22 LOAD_FAST                0 (a)
+             25 LOAD_FAST                1 (b)
+             28 COMPARE_OP               0 (<)
+             31 POP_JUMP_IF_FALSE       94
+
+  5          34 LOAD_FAST                2 (add)
+             37 LOAD_FAST                0 (a)
+             40 LOAD_FAST                1 (b)
+             43 CALL_FUNCTION            2 (2 positional, 0 keyword pair)
+             46 STORE_FAST               4 (c)
+
+  6          49 SETUP_LOOP              38 (to 90)
+             52 LOAD_GLOBAL              3 (range)
+             55 LOAD_CONST               3 (4)
+             58 LOAD_CONST               4 (6)
+             61 CALL_FUNCTION            2 (2 positional, 0 keyword pair)
+             64 GET_ITER
+        >>   65 FOR_ITER                21 (to 89)
+             68 STORE_FAST               5 (i)
+
+  7          71 LOAD_FAST                2 (add)
+             74 LOAD_FAST                4 (c)
+             77 LOAD_FAST                5 (i)
+             80 CALL_FUNCTION            2 (2 positional, 0 keyword pair)
+             83 STORE_FAST               4 (c)
+             86 JUMP_ABSOLUTE           65
+        >>   89 POP_BLOCK
+
+  8     >>   90 LOAD_FAST                4 (c)
+             93 RETURN_VALUE
+
+ 10     >>   94 LOAD_FAST                3 (sub)
+             97 LOAD_FAST                0 (a)
+            100 LOAD_FAST                1 (b)
+            103 CALL_FUNCTION            2 (2 positional, 0 keyword pair)
+            106 RETURN_VALUE
+            107 LOAD_CONST               0 (None)
+            110 RETURN_VALUE
+```
+
+**[103-fast_alphabet.py](103-fast_alphabet.py)** - prints the alphabet in uppercase, followed by a new line.
+- Your program should be maximum 3 lines long
+- You are not allowed to use:
+  - any loops
+  - any conditional statements
+  - `str.join()`
+  - any string literal
+  - any system calls
